@@ -65,7 +65,7 @@ async function main() {
     console.log("\n=== Step 2: Waiting for deposit to be processed ===");
     const waitTimeSeconds = 30;
     console.log(`Waiting ${waitTimeSeconds} seconds...`);
-    await sleep(waitTimeSeconds * 1000);
+    // await sleep(waitTimeSeconds * 1000);
 
     // Step 3: Check the corresponding L3 token address for ETH using get_l2_token on L3 TokenBridge
     console.log("\n=== Step 3: Getting L3 token address for ETH ===");
@@ -75,7 +75,7 @@ async function main() {
         "get_l2_token",
         [ETH_ADDRESS]
     );
-    const l3TokenAddress = l3TokenResult.result[0];
+    const l3TokenAddress = l3TokenResult.result[2];
     console.log("L3 Token Address for ETH:", l3TokenAddress);
 
     // Step 4: Check the balance of unitsAccount for the L3 token
@@ -91,7 +91,7 @@ async function main() {
 
     // Step 5: Transfer half of the token to another account
     console.log("\n=== Step 5: Transferring half of the tokens ===");
-    const recipientAddress = process.env.RECIPIENT_ADDRESS!;
+    const recipientAddress = L3_TOKEN_BRIDGE;
     const transferAmount = 1;
     const transferAmountU256 = uint256.bnToUint256(transferAmount);
 
@@ -107,6 +107,7 @@ async function main() {
         ]
     );
     console.log("Transfer transaction hash:", transferResult.tx.transaction_hash);
+    console.log("Transfer receipt status:", JSON.stringify(transferResult.receipt.finality_status, null, 2));
 
     // Step 6: Initiate withdrawal of ETH token
     console.log("\n=== Step 6: Initiating withdrawal ===");
@@ -126,6 +127,7 @@ async function main() {
         ]
     );
     console.log("Withdraw transaction hash:", withdrawResult.tx.transaction_hash);
+    console.log("Withdraw receipt status:", JSON.stringify(withdrawResult.receipt.finality_status, null, 2));
 
     console.log("\n=== Demo completed successfully! ===");
 }
