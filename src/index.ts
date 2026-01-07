@@ -63,7 +63,7 @@ async function main() {
 
     // Step 2: Wait for a few seconds for the deposit to be processed
     console.log("\n=== Step 2: Waiting for deposit to be processed ===");
-    const waitTimeSeconds = 30;
+    const waitTimeSeconds = 60;
     console.log(`Waiting ${waitTimeSeconds} seconds...`);
     // await sleep(waitTimeSeconds * 1000);
 
