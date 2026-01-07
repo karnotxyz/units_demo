@@ -1,0 +1,13 @@
+{
+    "contracts": {
+        "l2": {
+            "appchain": "0x1123cf67854fa39f9e380e62fbb93c5e233b7a58d0716bbc7c552e2581ae618",
+            "TimelockController": "0x20ff6e58ecb4bc864d860c393bebbcc5e50f6356720757614fcec8df11ed5f6",
+            "TokenBridge": "0x30fc880ef2f6e44e6875ad60191b5d13dc6e9cecfd529fc0add72d9b8c44eb4"
+        },
+        "l3": {
+            "TokenBridge": "0x66dbdcc028cf73c0ae701de4d7be6c2289847531f1ee0bb124f13c6ddbb8248",
+            "FeeToken": "0x13d5bf41c0bcd3b1eb76476d5613a9c7ab0dbc2c29769eda1a61efcbbce4d10"
+        }
+    }
+}
