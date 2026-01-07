@@ -1,6 +1,11 @@
 import { Account, BlockTag, RpcProvider } from "starknet";
 import { UnitsAccount, UnitsProvider } from "units-sdk";
 
+// Helper to sleep for a given number of milliseconds
+export function sleep(ms: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 export function getStarknetAccount() {
     const privateKey = process.env.STARKNET_PRIVATE_KEY as string;
     const address: string = process.env.STARKNET_ACCOUNT_ADDRESS as string;
